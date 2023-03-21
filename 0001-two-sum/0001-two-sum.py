@@ -7,5 +7,4 @@ class Solution:
             
             if complement in nums_dict:
                 return [i, nums_dict[complement]]
-            
-            nums_dict[n] = nums_dict.get(n, 0) + i
+            nums_dict[n] = i
