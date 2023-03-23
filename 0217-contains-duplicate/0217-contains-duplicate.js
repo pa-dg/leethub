@@ -12,7 +12,5 @@ var containsDuplicate = function(nums) {
         previous.add(nums[i])
     }
     
-    console.log(previous)
-    
     return false;
 };
