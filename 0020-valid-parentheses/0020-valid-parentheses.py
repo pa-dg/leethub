@@ -6,6 +6,7 @@ class Solution:
         for c in s:
             if c in dict:
                 stack.append(c)
+                
             elif len(stack) == 0 or dict[stack.pop()] != c:
                 return False
 
