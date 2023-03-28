@@ -36,9 +36,9 @@ var mergeTwoLists = function(list1, list2) {
 //     return dummy.next;
     
 // Solution 2 - recursion
-    // if (!list1 && !list2) {
-    //     return null;
-    // }
+    if (!list1 && !list2) {
+        return null;
+    }
     if (!list1) {
         return list2;
     }
