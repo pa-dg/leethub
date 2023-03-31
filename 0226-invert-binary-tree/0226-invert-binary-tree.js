@@ -33,7 +33,13 @@
 var invertTree = function(root) {
     if (!root) return null;
     
-    const node = new TreeNode(root.val, invertTree(root.right), invertTree(root.left))
+//     swap the children
+    let temp = root.left;
+    root.left = root.right;
+    root.right = temp;
     
-    return node;
+    invertTree(root.left);
+    invertTree(root.right);
+    
+    return root;
 };
