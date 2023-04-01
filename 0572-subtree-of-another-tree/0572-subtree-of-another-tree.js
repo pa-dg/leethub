@@ -15,21 +15,23 @@ var isSubtree = function(root, subRoot) {
     if (!subRoot) return true;
     if (!root) return false;
     
-    if (sameTree(root, subRoot)) return true;
+    if (isSameTree(root, subRoot)) return true;
     
     return (isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot));
-}; 
+};
 
-var sameTree = function(r, s) {
+var isSameTree = function(r, s) {
     if (!r && !s) return true;
-    if ((r && s) && r.val === s.val) {
-        return (sameTree(r.left, s.left) && sameTree(r.right, s.right))
-    }
+    if ((r && s) && (r.val === s.val)) {
+        return (isSameTree(r.left, s.left) && isSameTree(r.right, s.right));  
+    };
+    
     return false;
 };
 
-// create a helper func to check if sameTree
-// helper func sameTree will check if root.val = subRoot.val for left & right children
-// helper func base cases: !root && !subRoot, root.val != subRoot.val
+// create a helper func to check subtrees
+// helper func finds if tree and subtree are identical
+// helper func base cases: !root && !subRoot, root && subRoot && root.val != subRoot.val
 
 // main func edge cases: !subRoot return true, !root return false, call the helper func
+// main func finds a subtree
