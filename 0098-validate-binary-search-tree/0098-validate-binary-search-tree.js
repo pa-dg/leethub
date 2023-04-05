@@ -17,9 +17,7 @@ var isValidBST = function(root) {
 var isValid = function(node, left, right) {
     if (!node) return true;
     
-    if (!(left < node.val && right > node.val)) {
-        return false;
-    }
+    if (!(left < node.val && right > node.val)) return false;
     
     return (isValid(node.left, left, node.val) && isValid(node.right, node.val, right))
 };
