@@ -3,18 +3,17 @@
  * @return {number}
  */
 var longestConsecutive = function(nums) {
-    const numSet = new Set(nums);
-    let longest = 0
+    let longest = 0, numSet = new Set(nums)
     
     for (let n of nums) {
-        if (!numSet.has(n - 1)) {
+        if (!numSet.has(n-1)) {
             let length = 0;
-                while (numSet.has(n + length)) {
-                    length++;
-                }
-            longest = Math.max(longest, length);
+            
+            while (numSet.has(n+length)) {
+                length++;
+            }
+            longest = Math.max(longest, length)
         }
     }
-    
-    return longest;
+    return longest
 };
