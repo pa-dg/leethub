@@ -8,7 +8,9 @@ class KthLargest:
         heapq.heapify(self.minHeap)
         
         while len(self.minHeap) > k:
-            heapq.heappop(self.minHeap)
+            heapq.heappop(self.minHeap)    
+            
+#     O(n) constructing heap
 
     def add(self, val: int) -> int:
         heapq.heappush(self.minHeap, val)
@@ -17,6 +19,8 @@ class KthLargest:
             heapq.heappop(self.minHeap)
             
         return self.minHeap[0]
+    
+#  O(logn) for pushing/popping operations
 
 
 # Your KthLargest object will be instantiated and called as such:
