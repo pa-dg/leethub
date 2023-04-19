@@ -13,10 +13,7 @@ class Solution:
                     rotten.append([r, c])
                 elif grid[r][c] == 1:
                     fresh += 1
-                    
-        # print('rotten', rotten)
-        # print('fresh', fresh)
-        
+
         directions = ((0,1), (0,-1), (1,0), (-1,0))
         visited = set()
         
