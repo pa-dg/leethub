@@ -1,12 +1,11 @@
-class Solution(object):
-    def containsDuplicate(self, nums):
-        no_dups = set()
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        numSet = set()
         
-        for single in nums:
-            if single not in no_dups:
-                no_dups.add(single)
-            else:
+        for n in nums:
+            if n in numSet:
                 return True
+            else:
+                numSet.add(n)
         
         return False
-       
