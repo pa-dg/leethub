@@ -12,21 +12,20 @@
  * @return {number}
  */
 var kthSmallest = function(root, k) {
-    let n= 0, stack = [], current = root;         //stack=[] current=[3,1,4,null,2]    
+    let stack = [], curr = root;                // use stack to traverse thru BST
     
-    while (stack.length || current) {
-        while (current) {                   
-            stack.push(current);
-            current = current.left;
+    while (stack.length || curr) {              // continue running while stack/curr is non-empty
+        while (curr) {                          // continue pushing node to stack while curr is not null
+            stack.push(curr);
+            curr = curr.left;
         }
         
-        current = stack.pop();
-        n++;
-        
-        if (n == k) {
-            return current.val;
-        } else {
-            current = current.right
+        curr = stack.pop();                     // assign popped node off stack to curr
+        k--;                                    // decrement k
+        if (k === 0) {                          // if k=0, we found the kth smallest val
+            return curr.val;            
+        } else {                                // assign right child to curr
+            curr = curr.right; 
         }
     }
 };
