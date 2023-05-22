@@ -6,9 +6,10 @@
 var searchMatrix = function(matrix, target) {
     let [ROWS, COLS] = [matrix.length, matrix[0].length];
     let [top, bottom] = [0, ROWS - 1];
+    let row;
     
     while (top <= bottom) {
-        let row = Math.floor(top + (bottom - top) / 2);
+        row = Math.floor(top + (bottom - top) / 2);
         
         if (target < matrix[row][0]) {
             bottom = row - 1;
@@ -21,7 +22,7 @@ var searchMatrix = function(matrix, target) {
     
     if (!(top <= bottom)) return false;
     
-    let row = Math.floor(top + (bottom - top) / 2);
+    // let row = Math.floor(top + (bottom - top) / 2);
     let [left, right] = [0, COLS - 1];
     
     while (left <= right) {
