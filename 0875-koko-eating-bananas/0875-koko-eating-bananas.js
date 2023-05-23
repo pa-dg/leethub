@@ -5,8 +5,6 @@
  */
 var minEatingSpeed = function(piles, h) {
     let minRate = Number.POSITIVE_INFINITY;
-    // const maxRate = Math.max(...piles);
-    // const rates = getRange(1, maxRate + 1);
     let [l, r] = [1, Math.max(...piles)];
     
     while (l <= r) {
