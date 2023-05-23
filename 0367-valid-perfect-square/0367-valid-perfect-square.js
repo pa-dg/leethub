@@ -8,9 +8,9 @@ var isPerfectSquare = function(num) {
     while (left <= right) {
         let mid = Math.floor(left + (right - left) / 2);
         
-        if (Math.pow(mid, 2) === num) {
+        if (mid*mid === num) {
             return true;
-        } else if (Math.pow(mid, 2) > num) {
+        } else if (mid*mid > num) {
             right = mid - 1;
         } else {
             left = mid + 1;
