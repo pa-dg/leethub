@@ -7,10 +7,10 @@ var search = function(nums, target) {
   let [left, right] = [0, nums.length - 1];
 
   while (left <= right) {
-    console.log('left', left)
-    console.log('right', right)
+    // console.log('left', left)
+    // console.log('right', right)
     let midIdx = Math.floor(left + (right - left) / 2);
-    console.log('mid', midIdx)
+    // console.log('mid', midIdx)
     let midVal = nums[midIdx];
 
     if (midVal === target) {
