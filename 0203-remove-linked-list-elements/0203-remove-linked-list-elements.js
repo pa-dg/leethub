@@ -11,23 +11,18 @@
  * @return {ListNode}
  */
 var removeElements = function(head, val) {
-    let dummy = new ListNode(_, head)
-    let prev = dummy;
-    let curr = head;
+    let dummy = new ListNode(_, head);
+    let curr = dummy;
     
     while (curr) {
-        let next = curr.next
-        
-        if (curr.val === val) {
-            prev.next = next;
-        } else {
-            prev = curr
+        while (curr.next && curr.next.val === val) {
+            curr.next = curr.next.next;
         }
         
-        curr = next;
-    }
+        curr = curr.next;
+    };
     
-    return dummy.next
+    return dummy.next;
 };
 
 
