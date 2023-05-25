@@ -10,8 +10,8 @@
  * @return {number}
  */
 var pairSum = function(head) {
-    const list = Array();
     let curr = head;
+    const list = Array();
     
     while (curr) {
         list.push(curr.val);
@@ -19,9 +19,11 @@ var pairSum = function(head) {
     }
     
     let maxTwinSum = 0;
-    for (let i = 0; i < list.length / 2; i++) {
-        sum = list[i] + list[list.length - 1 - i];
-        maxTwinSum = Math.max(maxTwinSum, sum);
+    const len = list.length;
+    
+    for (let i = 0; i < len / 2; i++) {
+        const sum = list[i] + list[len - 1 - i];
+        maxTwinSum = Math.max(sum, maxTwinSum);
     }
     
     return maxTwinSum;
