@@ -10,51 +10,35 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
+
+// create a dummy node to link the head of the merged list
+// create a tail node to keep track of the last node added to merged list
+// add a condition checking the lesser node, which will be the one added to merged list
+
 var mergeTwoLists = function(list1, list2) {
-// Solution 1 - iterative
-//     const dummy = new ListNode();
-//     let tail = dummy;
+    const dummy = new ListNode();
+    let tail = dummy;
+    let curr1 = list1;
+    let curr2 = list2;
     
-//     while (list1 && list2) {
-//         if (list1.val < list2.val) {
-//             tail.next = new ListNode(list1.val);
-//             list1 = list1.next
-//         } else {
-//             tail.next = new ListNode(list2.val);
-//             list2 = list2.next
-//         }
+    while (curr1 && curr2) {
+        if (curr1.val < curr2.val) {
+            tail.next = curr1;
+            curr1 = curr1.next;
+        } else {
+            tail.next = curr2;
+            curr2 = curr2.next;
+        }
         
-//         tail = tail.next;
-//     }
-    
-//     if (list1) {
-//         tail.next = list1;
-//     } else {
-//         tail.next = list2;
-//     }
-    
-//     return dummy.next;
-    
-// Solution 2 - recursion
-    if (!list1 && !list2) {
-        return null;
-    }
-    if (!list1) {
-        return list2;
-    }
-    if (!list2) {
-        return list1;
+        tail = tail.next;
     }
     
-    if (list1.val <= list2.val) {
-        let next = list1.next 
-        list1.next = mergeTwoLists(next, list2)
-        return list1
-    } else {
-        let next = list2.next
-        list2.next = mergeTwoLists(list1, next)
-        return list2
+    if (curr1) {
+        tail.next = curr1;
+    }
+    if (curr2) {
+        tail.next = curr2;
     }
     
-    
+    return dummy.next;
 };
