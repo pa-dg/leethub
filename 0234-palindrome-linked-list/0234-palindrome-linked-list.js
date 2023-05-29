@@ -23,17 +23,19 @@ var isPalindrome = function(head) {
         slow.next = prev;
         prev = slow;
         slow = next;
-    };
+    }
     
-    let [left, right] = [head, prev]
+    // 1 -> 2 -> 2 -> 1 ==> 1 -> 2 -> 1 -> 2 -> null
+    
+    let [left, right] = [head, prev];
     while (right) {
         if (left.val !== right.val) {
-          return false;
+            return false;
         }
         
         left = left.next;
         right = right.next;
-    };
+    }
     
     return true;
 };
