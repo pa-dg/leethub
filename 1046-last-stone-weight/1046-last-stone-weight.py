@@ -6,8 +6,8 @@ class Solution:
         heapq.heapify(stones)
         
         while (len(stones) > 1):
-            first = heapq.heappop(stones)   #-8
-            second = heapq.heappop(stones)  #-7
+            first = heapq.heappop(stones)  
+            second = heapq.heappop(stones) 
             
             if first != second:
                 heapq.heappush(stones, first - second)
