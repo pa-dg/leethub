@@ -1,21 +1,15 @@
-// set a pointer to buy (index) and pointer to sell (index)
-// use for loop to iterate through the input prices array and move the pointers buy and sell day
-// calculate the profit by subtracting sell and buy, set that as max profit
-// return max profit or 0 if no profit
+// in a single pass through array we can find the max profit and keep track of minimum price observed so far
 
 function maxProfit(prices: number[]): number {
-    let maxProfit: number = 0
-    let buyDay: number = 0
-    let sellDay: number = 1
-
-    while (sellDay < prices.length) {
-        const profit: number = prices[sellDay] - prices[buyDay]
-        maxProfit = Math.max(profit, maxProfit)
-
-        if (prices[sellDay] < prices[buyDay]) {
-            buyDay = sellDay
-        }
-        sellDay++
+    let minPrice = Infinity;
+    let maxProfit = 0;
+    
+    for (let i=0; i<prices.length; i++) {
+        const currentPrice = prices[i]
+        minPrice = Math.min(minPrice, currentPrice)
+        
+        const potentialProfit = currentPrice - minPrice
+        maxProfit = Math.max(potentialProfit, maxProfit)
     }
     
     return maxProfit
