@@ -4,14 +4,7 @@
 // 
 
 function minEatingSpeed(piles: number[], h: number): number {
-    function canFinish(speed: number): boolean {
-        let hours = 0;
-        for (let pile of piles) {
-            hours += Math.ceil(pile/speed)
-        }
-        return hours <= h
-        
-    }
+  
     
     let low = 1, high = Math.max(...piles)
     
@@ -26,5 +19,14 @@ function minEatingSpeed(piles: number[], h: number): number {
     }
     
     return low;
+    
+      function canFinish(speed: number): boolean {
+        let hours = 0;
+        for (let pile of piles) {
+            hours += Math.ceil(pile/speed)
+        }
+        return hours <= h
+        
+    }
     
 };
