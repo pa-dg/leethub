@@ -19,7 +19,7 @@
 // after processing all nodes in level only then we increment depth
 
 function maxDepth(root: TreeNode | null): number {
-    if (root === null) return 0;
+    if (!root) return 0;
     
     const queue: TreeNode[] = [ root ];
     let depth = 0;
@@ -29,9 +29,10 @@ function maxDepth(root: TreeNode | null): number {
         
         for (let i = 0; i < levelSize; i++) {
             const currentNode = queue.shift();
-    
-            if (currentNode.left !== null) queue.push(currentNode.left)
-            if (currentNode.right !== null) queue.push(currentNode.right)
+            const [ leftChild, rightChild ] = [ currentNode.left, currentNode.right ]
+            
+            if (leftChild !== null) queue.push(leftChild);
+            if (rightChild !== null) queue.push(rightChild);
         }
         
         depth++
